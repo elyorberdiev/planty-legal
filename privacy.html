@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Planty AI</title>
+<meta name="description" content="Privacy Policy for Planty AI, a plant identification and plant care app by Fazogirapps.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="doc-header">
+  <span class="brand">Fazogirapps</span>
+  <h1>Privacy Policy</h1>
+  <p class="meta">
+    For the Planty AI mobile app (<code>com.fazogir.plantai</code>) on iOS and Android.<br>
+    Effective Date: <strong>August 14, 2026</strong> · Last Updated: <strong>August 14, 2026</strong>
+  </p>
+  <p class="nav-links"><a href="index.html">← Legal home</a><a href="terms.html">Terms of Use</a></p>
+</header>
+
+<div class="summary">
+  <h2>Summary — the short version</h2>
+  <ul>
+    <li>You do not create an account. There is no email, name, or password.</li>
+    <li>The photos you scan are sent to <strong>Google's Gemini AI</strong> so it can identify the plant. This is the core of how the App works.</li>
+    <li>Plants you choose to save are stored on your device and backed up to our cloud, linked only to a random anonymous ID.</li>
+    <li>We do not show ads, we do not sell your data, and we do not track you across other apps or websites.</li>
+    <li>You can delete everything from <strong>Settings → Delete Account</strong>.</li>
+  </ul>
+</div>
+
+<h2>1. Introduction</h2>
+<p>Planty AI ("App", "we", "our", "us") is developed and operated by Fazogirapps. This Privacy Policy explains what information the App handles, why, who else is involved, and what choices you have.</p>
+<p>By downloading, installing, or using the App you agree to the practices described here. If you do not agree, please do not use the App.</p>
+<p>Contact: <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a></p>
+
+<h2>2. No Account, No Personal Identity</h2>
+<p>The App does not ask you to register. On first launch it signs you in <strong>anonymously</strong> through Firebase Authentication, which issues a random identifier (for example <code>nRvpC1SnSPUYAANdK6…</code>). That identifier is how your saved plants are grouped together.</p>
+<p>We do <strong>not</strong> collect your name, email address, phone number, postal address, date of birth, precise location, contacts, calendar, health data, or advertising identifiers.</p>
+
+<div class="warning">
+  <p><strong>Important consequence of anonymous accounts:</strong> because the identifier lives only on your device, if you delete the App, reset the device, or lose it, we have no way to recognise you again and your cloud backup cannot be recovered or transferred. There is no password reset, because there is no password.</p>
+</div>
+
+<h2>3. Information You Provide</h2>
+
+<h3>3.1 Photos of plants</h3>
+<p>When you scan a plant, you either take a photo with the camera or choose an existing one from your photo library. That single image is uploaded to our server function and forwarded to Google's Gemini AI for analysis. See <a href="#ai">section 5</a> for details.</p>
+<p>The App accesses only the specific image you select. It does not browse, index, or upload your photo library.</p>
+
+<h3>3.2 Plant records you save</h3>
+<p>If you tap "Save to My plants", the App stores:</p>
+<ul>
+  <li>the photo;</li>
+  <li>the AI result: common name, botanical (Latin) name, toxicity indication, watering, light, temperature and fertilizer notes, and tags;</li>
+  <li>the date the record was created;</li>
+  <li>your watering reminder settings and the date you last marked the plant as watered, if you set a reminder;</li>
+  <li>any nickname or note you add.</li>
+</ul>
+
+<h2>4. Information Collected Automatically</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Why it is needed</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Anonymous user identifier</td>
+      <td>To keep your plants separate from other users' plants and to apply your subscription.</td>
+    </tr>
+    <tr>
+      <td>Daily scan counter (a number and a date)</td>
+      <td>To enforce the free daily scan limit. This is counted on our server so that it cannot be bypassed.</td>
+    </tr>
+    <tr>
+      <td>Subscription status</td>
+      <td>To unlock Pro features. Managed through RevenueCat and the app stores.</td>
+    </tr>
+    <tr>
+      <td>Device time zone</td>
+      <td>To schedule watering reminders at the right local hour. Reminders are generated on your device.</td>
+    </tr>
+    <tr>
+      <td>Technical diagnostics: app version, device model, operating system version, crash reports, error logs</td>
+      <td>To find and fix crashes and failures.</td>
+    </tr>
+    <tr>
+      <td>Request logs for AI calls: a request identifier, the anonymous user identifier, whether the request succeeded, and the size of the request and response</td>
+      <td>To monitor reliability, cost, and abuse. These logs do not contain your photo.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="ai">5. How the AI Feature Works</h2>
+<p>This is the part of the App that involves sending your content to a third party, so we describe it plainly.</p>
+<ol>
+  <li>You choose or take a photo.</li>
+  <li>The App resizes it and sends it to our own server function, hosted on Google Cloud Functions in the <strong>europe-west1</strong> region.</li>
+  <li>Our function checks that you are within your scan allowance, then forwards the image to the <strong>Google Gemini API</strong> together with a text instruction asking it to identify the plant, or to assess its health when you use the AI Doctor feature.</li>
+  <li>Gemini returns a text result. Our function passes that result back to the App.</li>
+</ol>
+<p>Google processes the image as a data processor for that request under Google's own terms and privacy documentation. We do not control Google's internal processing. Please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API terms</a>.</p>
+<p>We do not use your photos or plant records to train any model of our own.</p>
+
+<div class="warning">
+  <p><strong>Please do not scan anything private.</strong> The feature is designed for photographs of plants. Avoid including people, faces, documents, screens, or anything else you would not want processed by a third-party AI service.</p>
+</div>
+
+<h2>6. Where Your Data Is Stored</h2>
+<ul>
+  <li><strong>On your device.</strong> Your plant list lives in a local database on the device and works offline. This is the primary copy.</li>
+  <li><strong>In our cloud.</strong> Saved plants are also copied to Google Firebase (Cloud Firestore for the text, Cloud Storage for the photos) under your anonymous identifier, so that the list survives if the App is closed unexpectedly and so it can be restored on the same device.</li>
+</ul>
+<p>Access is enforced by server-side security rules: a request carrying your anonymous identifier can read and write only data filed under that same identifier. All traffic uses HTTPS/TLS.</p>
+
+<h2>7. Subscriptions and Payments</h2>
+<p>Planty AI offers an optional auto-renewing subscription ("Planty AI Pro") that removes the daily scan limit and unlocks additional features.</p>
+<p>We <strong>never</strong> see or handle your card details. Payment is processed entirely by Apple or Google. We use <strong>RevenueCat, Inc.</strong> to verify purchases and tell the App whether your subscription is active. RevenueCat receives your anonymous identifier and the purchase receipt from the store.</p>
+<p>Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, in your <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store</a> or <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener">Google Play</a> subscription settings.</p>
+
+<h2>8. Third-Party Services</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>Provider</th><th>Purpose</th><th>Their policy</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Google LLC — Firebase Authentication, Cloud Firestore, Cloud Storage, Cloud Functions</td>
+      <td>Anonymous sign-in, cloud backup of saved plants, running our server function</td>
+      <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy</a></td>
+    </tr>
+    <tr>
+      <td>Google LLC — Gemini API</td>
+      <td>Identifying the plant in your photo and assessing plant health</td>
+      <td><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API terms</a></td>
+    </tr>
+    <tr>
+      <td>Google LLC — Firebase Crashlytics and Analytics</td>
+      <td>Crash reports and aggregate, non-identifying usage statistics</td>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy</a></td>
+    </tr>
+    <tr>
+      <td>RevenueCat, Inc.</td>
+      <td>Subscription and entitlement management</td>
+      <td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat privacy</a></td>
+    </tr>
+    <tr>
+      <td>Apple Inc. — In-App Purchase</td>
+      <td>Payment processing on iOS</td>
+      <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple privacy</a></td>
+    </tr>
+    <tr>
+      <td>Google LLC — Google Play Billing</td>
+      <td>Payment processing on Android</td>
+      <td><a href="https://payments.google.com/files/privacy.html" target="_blank" rel="noopener">Google Payments privacy</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>We do not use advertising networks, and we do not share data with data brokers.</p>
+
+<h2>9. Device Permissions</h2>
+<ul>
+  <li><strong>Camera</strong> — only to photograph a plant when you choose the camera. Nothing is recorded in the background.</li>
+  <li><strong>Photo library</strong> — only to let you pick an existing photo. The App reads the single image you select.</li>
+  <li><strong>Notifications</strong> — only to deliver the watering reminders you set up. Reminders are scheduled locally on your device.</li>
+</ul>
+<p>You can withdraw any of these permissions at any time in your device settings. The rest of the App keeps working.</p>
+
+<h2>10. Data Retention</h2>
+<p>Saved plants are kept until you delete them or delete your account. Deleting a plant in the App removes it from your device and from our cloud, including its photo.</p>
+<p>Technical logs are kept for a short period for troubleshooting and cost monitoring, then deleted automatically.</p>
+
+<h2>11. Your Rights and Choices</h2>
+<ul>
+  <li><strong>Delete a single plant</strong> — press and hold it in My Plants, or open it and choose Delete.</li>
+  <li><strong>Delete everything</strong> — Settings → Delete Account. This erases your saved plants, their photos, your usage counters, and your anonymous account itself. It cannot be undone.</li>
+  <li><strong>Cancel your subscription</strong> — in your App Store or Google Play settings. Deleting your account does not cancel a subscription; you must cancel it in the store.</li>
+  <li><strong>Ask us</strong> — write to <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a>. Because accounts are anonymous, we may be unable to locate your data unless you can supply your anonymous identifier.</li>
+</ul>
+
+<h2>12. GDPR — European Economic Area, United Kingdom, Switzerland</h2>
+<p>Where the GDPR or UK GDPR applies, Fazogirapps is the controller for the data described above. Our legal bases are:</p>
+<ul>
+  <li><strong>Performance of a contract</strong> — providing identification, saving your plants, delivering reminders, and applying your subscription.</li>
+  <li><strong>Legitimate interests</strong> — keeping the service reliable and secure, enforcing the free scan limit, and preventing abuse.</li>
+  <li><strong>Consent</strong> — camera, photo library, and notification permissions, which you may withdraw at any time.</li>
+</ul>
+<p>You have the rights of access, rectification, erasure, restriction, objection, and data portability, and the right to lodge a complaint with your local supervisory authority. Contact <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a>.</p>
+
+<h2>13. CCPA / CPRA — California Residents</h2>
+<p>We do not sell personal information and we do not share it for cross-context behavioural advertising. California residents may exercise their rights of access, deletion, and correction using the methods in section 11. We will not discriminate against you for exercising them.</p>
+
+<h2>14. Children's Privacy</h2>
+<p>The App is not directed to children under 13 (or under 16 in the EEA/UK). We do not knowingly collect personal information from children. If you believe a child has used the App and provided data, contact us and we will delete it.</p>
+
+<h2>15. International Data Transfers</h2>
+<p>Our server function runs in the European Union (europe-west1). Google and RevenueCat may process data in the United States and other countries. Such transfers rely on the European Commission's Standard Contractual Clauses or another lawful transfer mechanism offered by those providers.</p>
+
+<h2>16. Security</h2>
+<p>All network traffic is encrypted with HTTPS/TLS. Server-side security rules restrict every record to the anonymous account that created it, and the daily scan counter and subscription status can be written only by our server, never by the App. No system is perfectly secure, and we cannot guarantee absolute security.</p>
+
+<h2>17. Changes to This Privacy Policy</h2>
+<p>We may update this Policy. The "Last Updated" date at the top always reflects the current version. For material changes we will give notice in the App. Continued use after an update means you accept the revised Policy.</p>
+
+<h2>18. Contact Us</h2>
+<p>Fazogirapps<br>Email: <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a></p>
+<p>We aim to respond within 30 days.</p>
+
+<div class="footer">
+  <p class="nav-links"><a href="index.html">Legal home</a><a href="terms.html">Terms of Use</a></p>
+  <p>© 2026 Fazogirapps. All rights reserved.</p>
+</div>
+
+</body>
+</html>
