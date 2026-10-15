@@ -31,7 +31,7 @@ These documents describe what the app does today. If a feature changes, the corr
 | "limit resets at midnight UTC" | The server keeps counting by UTC day (`dayKeyUTC` in `functions/index.js`). |
 | "Settings → Delete Account" erases cloud data | The real deletion flow is implemented (F2-02). **Do not publish before that ships** — Apple rejects apps whose deletion is cosmetic. |
 | "AI Doctor requests count towards the same allowance" | `checkAndConsumeScan` is called regardless of mode. |
-| "fair-use cap of 100 AI scans per calendar day" for Pro | `PRO_SCAN_LIMIT_PER_DAY` in `functions/scan_limit.js` stays 100. Changing it requires updating §8.2 of the Terms. |
+| "Pro raises your allowance to 100 AI scans per calendar day" | `PRO_SCAN_LIMIT_PER_DAY` in `functions/scan_limit.js` stays 100. Changing it requires updating the summary and §8.2 of the Terms; the app copy follows `ScanUsageRepository.proLimit` (kept in sync by `test/scan_limit_sync_test.dart`). |
 
 ## Publishing checklist
 
