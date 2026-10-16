@@ -30,7 +30,7 @@ These documents describe what the app does today. If a feature changes, the corr
 | "server function runs in europe-west1" | The Cloud Function region is unchanged. |
 | "limit resets at midnight UTC" | The server keeps counting by UTC day (`dayKeyUTC` in `functions/index.js`). |
 | "Settings → Delete Account" erases cloud data | The real deletion flow is implemented (F2-02). **Do not publish before that ships** — Apple rejects apps whose deletion is cosmetic. |
-| "AI Doctor requests count towards the same allowance" | `checkAndConsumeScan` is called regardless of mode. |
+| "one AI Doctor check per calendar day … causes, treatment and prevention are part of Pro"; Pro checks "count towards the same allowance" | `counterFor` in `functions/scan_limit.js` (`FREE_DOCTOR_PER_DAY = 1`, Pro → shared `usage/scan`) and `doctorView` in `functions/doctor.js` (free answers carry no causes/treatment/prevention). |
 | "Pro raises your allowance to 100 AI scans per calendar day" | `PRO_SCAN_LIMIT_PER_DAY` in `functions/scan_limit.js` stays 100. Changing it requires updating the summary and §8.2 of the Terms; the app copy follows `ScanUsageRepository.proLimit` (kept in sync by `test/scan_limit_sync_test.dart`). |
 
 ## Publishing checklist
