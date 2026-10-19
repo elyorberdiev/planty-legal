@@ -9,6 +9,7 @@ Served via GitHub Pages:
 | Landing page | https://elyorberdiev.github.io/planty-legal/ |
 | Privacy Policy | https://elyorberdiev.github.io/planty-legal/privacy.html |
 | Terms of Use | https://elyorberdiev.github.io/planty-legal/terms.html |
+| Delete Your Account | https://elyorberdiev.github.io/planty-legal/delete-account.html (Play Data safety — «Delete account URL») |
 
 These URLs are submitted to App Store Connect and the Google Play Console, and are linked from the app's Settings screen. **Do not rename these files** — changing a path breaks the links already registered with the stores.
 
@@ -24,7 +25,9 @@ These documents describe what the app does today. If a feature changes, the corr
 
 | Text says | True only while |
 |---|---|
-| "no email, name, or password" | Auth stays anonymous-only. Adding sign-in requires rewriting §2 of the Privacy Policy. |
+| "anonymous by default; optional sign-in with Google or Apple" (§2) | `AccountService` (2026-10-19): only Google and Sign in with Apple, only `linkWith*` to the anonymous uid, email scope only for Apple. A new provider or data field (name, phone) requires updating §2, §8 and Data safety / App Privacy. |
+| "Feedback you send" (§3.3): reason, optional comment ≤ 500, AI answer, language/version/platform, no photo; deleted with the account | `FeedbackRepository.payload` + `isValidFeedback` in `firestore.rules`; stored under `users/{uid}/feedback` so `deleteAccount`'s `recursiveDelete` erases it. A new field (e.g. the photo) requires updating §3.3 and Data safety / App Privacy. |
+| "Delete account revokes Apple access" | `AccountService.revokeAppleIfLinked()` runs before server deletion. |
 | "photos are sent to Google's Gemini API" | The AI stays Gemini. Switching provider requires updating §5 and the third-party table. |
 | "Firebase Crashlytics and Analytics" | These are actually shipped (planned in F4-01). Remove the row if they are not in the released build. |
 | "server function runs in europe-west1" | The Cloud Function region is unchanged. |

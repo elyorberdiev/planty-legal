@@ -14,7 +14,7 @@
   <h1>Privacy Policy</h1>
   <p class="meta">
     For the LeafScout mobile app (<code>com.fazogir.plantai</code>) on iOS and Android.<br>
-    Effective Date: <strong>August 14, 2026</strong> · Last Updated: <strong>August 14, 2026</strong>
+    Effective Date: <strong>August 14, 2026</strong> · Last Updated: <strong>October 19, 2026</strong>
   </p>
   <p class="nav-links"><a href="index.html">← Legal home</a><a href="terms.html">Terms of Use</a></p>
 </header>
@@ -22,9 +22,9 @@
 <div class="summary">
   <h2>Summary — the short version</h2>
   <ul>
-    <li>You do not create an account. There is no email, name, or password.</li>
+    <li>You do not need an account. Signing in with Google or Apple is optional and only backs up your plant collection. There is never a password.</li>
     <li>The photos you scan are sent to <strong>Google's Gemini AI</strong> so it can identify the plant. This is the core of how the App works.</li>
-    <li>Plants you choose to save are stored on your device and backed up to our cloud, linked only to a random anonymous ID.</li>
+    <li>Plants you choose to save are stored on your device and backed up to our cloud, linked to a random anonymous ID — or, if you choose to sign in, to your Google or Apple account.</li>
     <li>We do not show ads, we do not sell your data, and we do not track you across other apps or websites.</li>
     <li>You can delete everything from <strong>Settings → Delete Account</strong>.</li>
   </ul>
@@ -35,12 +35,22 @@
 <p>By downloading, installing, or using the App you agree to the practices described here. If you do not agree, please do not use the App.</p>
 <p>Contact: <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a></p>
 
-<h2>2. No Account, No Personal Identity</h2>
+<h2>2. Account: Anonymous by Default, Optional Sign-In</h2>
 <p>The App does not ask you to register. On first launch it signs you in <strong>anonymously</strong> through Firebase Authentication, which issues a random identifier (for example <code>nRvpC1SnSPUYAANdK6…</code>). That identifier is how your saved plants are grouped together.</p>
-<p>We do <strong>not</strong> collect your name, email address, phone number, postal address, date of birth, precise location, contacts, calendar, health data, or advertising identifiers.</p>
+
+<h3>2.1 Optional backup with Google or Apple</h3>
+<p>In <strong>Settings → Back up &amp; restore</strong> you can sign in with your Google account or, on iPhone, with Sign in with Apple. This links your existing identifier to that account so you can get your collection back on a new phone. Nothing else in the App changes, and you can keep using it without signing in.</p>
+<p>If you sign in, Firebase Authentication receives from Google or Apple:</p>
+<ul>
+  <li>your email address — with Sign in with Apple this may be a private relay address if you choose "Hide My Email";</li>
+  <li>an account identifier issued by Google or Apple;</li>
+  <li>with Google, also your name and profile photo address, which Firebase stores with the account. The App does not use or display them.</li>
+</ul>
+<p>We use the email address only to show you which account your backup is linked to and to find your data if you contact us. We do not send you marketing email and do not share the address with anyone.</p>
+<p>Unless you choose to sign in, we do <strong>not</strong> collect your name or email address. We never collect your phone number, postal address, date of birth, precise location, contacts, calendar, health data, or advertising identifiers.</p>
 
 <div class="warning">
-  <p><strong>Important consequence of anonymous accounts:</strong> because the identifier lives only on your device, if you delete the App, reset the device, or lose it, we have no way to recognise you again and your cloud backup cannot be recovered or transferred. There is no password reset, because there is no password.</p>
+  <p><strong>If you stay anonymous:</strong> the identifier lives only on your device. If you delete the App, reset the device, or lose it, we have no way to recognise you again and your cloud backup cannot be recovered or transferred. To keep your collection across phones, sign in under Settings → Back up &amp; restore. There is no password in either case.</p>
 </div>
 
 <h2>3. Information You Provide</h2>
@@ -58,6 +68,15 @@
   <li>your watering reminder settings and the date you last marked the plant as watered, if you set a reminder;</li>
   <li>any nickname or note you add.</li>
 </ul>
+
+<h3>3.3 Feedback you send</h3>
+<p>Under a result the App asks whether it was right. Tapping 👍 sends nothing but an anonymous usage event (section 4). If you tap 👎 and send the short form, we store:</p>
+<ul>
+  <li>the reason you picked (for example "it's a different plant") and the optional comment you type, up to 500 characters;</li>
+  <li>what the AI answered: the botanical name, the problem name for a health check, and how confident it was;</li>
+  <li>the App's language, version and platform (iOS or Android), and the time you sent it.</li>
+</ul>
+<p>Your photo is not included. Feedback is linked to your anonymous identifier, is used only to find and fix wrong results, and is deleted together with your account. Please do not write personal information in the comment.</p>
 
 <h2>4. Information Collected Automatically</h2>
 <div class="table-wrap">
@@ -112,9 +131,9 @@
 <h2>6. Where Your Data Is Stored</h2>
 <ul>
   <li><strong>On your device.</strong> Your plant list lives in a local database on the device and works offline. This is the primary copy.</li>
-  <li><strong>In our cloud.</strong> Saved plants are also copied to Google Firebase (Cloud Firestore for the text, Cloud Storage for the photos) under your anonymous identifier, so that the list survives if the App is closed unexpectedly and so it can be restored on the same device.</li>
+  <li><strong>In our cloud.</strong> Saved plants are also copied to Google Firebase (Cloud Firestore for the text, Cloud Storage for the photos) under your account identifier, so that the list survives if the App is closed unexpectedly and can be restored on the same device — or on a new one, if you signed in with Google or Apple.</li>
 </ul>
-<p>Access is enforced by server-side security rules: a request carrying your anonymous identifier can read and write only data filed under that same identifier. All traffic uses HTTPS/TLS.</p>
+<p>Access is enforced by server-side security rules: a request carrying your identifier can read and write only data filed under that same identifier. All traffic uses HTTPS/TLS.</p>
 
 <h2>7. Subscriptions and Payments</h2>
 <p>LeafScout offers an optional auto-renewing subscription ("LeafScout Pro") that removes the daily limit for plant scans and the plant doctor.</p>
@@ -130,7 +149,7 @@
   <tbody>
     <tr>
       <td>Google LLC — Firebase Authentication, Cloud Firestore, Cloud Storage, Cloud Functions</td>
-      <td>Anonymous sign-in, cloud backup of saved plants, running our server function</td>
+      <td>Anonymous sign-in and optional sign-in with Google or Apple, cloud backup of saved plants, running our server function</td>
       <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase privacy</a></td>
     </tr>
     <tr>
@@ -142,6 +161,16 @@
       <td>Google LLC — Firebase Crashlytics and Analytics</td>
       <td>Crash reports and aggregate, non-identifying usage statistics</td>
       <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy</a></td>
+    </tr>
+    <tr>
+      <td>Google LLC — Google Sign-In (optional)</td>
+      <td>Signing in with your Google account to back up your collection</td>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy</a></td>
+    </tr>
+    <tr>
+      <td>Apple Inc. — Sign in with Apple (optional, iPhone)</td>
+      <td>Signing in with your Apple Account to back up your collection</td>
+      <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple privacy</a></td>
     </tr>
     <tr>
       <td>RevenueCat, Inc.</td>
@@ -172,23 +201,24 @@
 <p>You can withdraw any of these permissions at any time in your device settings. The rest of the App keeps working.</p>
 
 <h2>10. Data Retention</h2>
-<p>Saved plants are kept until you delete them or delete your account. Deleting a plant in the App removes it from your device and from our cloud, including its photo.</p>
+<p>Saved plants are kept until you delete them or delete your account. Deleting a plant in the App removes it from your device and from our cloud, including its photo. Feedback you send (section 3.3) is kept until you delete your account.</p>
 <p>Technical logs are kept for a short period for troubleshooting and cost monitoring, then deleted automatically.</p>
 
 <h2>11. Your Rights and Choices</h2>
 <ul>
   <li><strong>Delete a single plant</strong> — press and hold it in My Plants, or open it and choose Delete.</li>
-  <li><strong>Delete everything</strong> — Settings → Delete Account. This erases your saved plants, their photos, your usage counters, and your anonymous account itself. It cannot be undone.</li>
+  <li><strong>Sign out of your backup</strong> — Settings → Back up &amp; restore → Sign out. Your collection is removed from this phone and stays in your backup until you sign in again.</li>
+  <li><strong>Delete everything</strong> — Settings → Delete Account. This erases your saved plants, their photos, your usage counters, the feedback you sent, and your account itself, including the link to Google or Apple. If you used Sign in with Apple, the App's access to your Apple Account is revoked. It cannot be undone. Without the App, see <a href="delete-account.html">how to request deletion</a>.</li>
   <li><strong>Cancel your subscription</strong> — in your App Store or Google Play settings. Deleting your account does not cancel a subscription; you must cancel it in the store.</li>
-  <li><strong>Ask us</strong> — write to <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a>. Because accounts are anonymous, we may be unable to locate your data unless you can supply your anonymous identifier.</li>
+  <li><strong>Ask us</strong> — write to <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a>. If you signed in, write from the email address of that account so we can find your data. For anonymous accounts we may be unable to locate your data unless you can supply your anonymous identifier.</li>
 </ul>
 
 <h2>12. GDPR — European Economic Area, United Kingdom, Switzerland</h2>
 <p>Where the GDPR or UK GDPR applies, Fazogirapps is the controller for the data described above. Our legal bases are:</p>
 <ul>
-  <li><strong>Performance of a contract</strong> — providing identification, saving your plants, delivering reminders, and applying your subscription.</li>
+  <li><strong>Performance of a contract</strong> — providing identification, saving and backing up your plants, delivering reminders, and applying your subscription.</li>
   <li><strong>Legitimate interests</strong> — keeping the service reliable and secure, enforcing the free scan limit, and preventing abuse.</li>
-  <li><strong>Consent</strong> — camera, photo library, and notification permissions, which you may withdraw at any time.</li>
+  <li><strong>Consent</strong> — optional sign-in with Google or Apple, and camera, photo library, and notification permissions. You may withdraw consent at any time by signing out, deleting your account, or changing permissions.</li>
 </ul>
 <p>You have the rights of access, rectification, erasure, restriction, objection, and data portability, and the right to lodge a complaint with your local supervisory authority. Contact <a href="mailto:fazogirapps@gmail.com">fazogirapps@gmail.com</a>.</p>
 
@@ -202,7 +232,7 @@
 <p>Our server function runs in the European Union (europe-west1). Google and RevenueCat may process data in the United States and other countries. Such transfers rely on the European Commission's Standard Contractual Clauses or another lawful transfer mechanism offered by those providers.</p>
 
 <h2>16. Security</h2>
-<p>All network traffic is encrypted with HTTPS/TLS. Server-side security rules restrict every record to the anonymous account that created it, and the daily scan counter and subscription status can be written only by our server, never by the App. No system is perfectly secure, and we cannot guarantee absolute security.</p>
+<p>All network traffic is encrypted with HTTPS/TLS. Server-side security rules restrict every record to the account that created it, and the daily scan counter and subscription status can be written only by our server, never by the App. No system is perfectly secure, and we cannot guarantee absolute security.</p>
 
 <h2>17. Changes to This Privacy Policy</h2>
 <p>We may update this Policy. The "Last Updated" date at the top always reflects the current version. For material changes we will give notice in the App. Continued use after an update means you accept the revised Policy.</p>
